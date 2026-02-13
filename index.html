@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Valentín ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Outfit:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Background Music (Muted by default to allow auto-play logic) -->
+        <audio id="bg-music" loop>
+            <source src="/assets/musica.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- Initial Start Screen (Audio bypass) -->
+        <div id="start-overlay" class="overlay active">
+            <button id="start-btn">Abrir mi regalo ❤️</button>
+        </div>
+
+        <!-- Envelope Container -->
+        <div id="envelope-container" class="hidden">
+            <div class="envelope" id="envelope">
+                <div class="flap"></div>
+                <div class="body"></div>
+                <div class="letter">
+                    <p>Haz clic para ver una sorpresa...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Overlay -->
+        <div id="video-overlay" class="overlay hidden">
+            <div class="video-container">
+                <video id="val-video" playsinline>
+                    <source src="/assets/v.mp4" type="video/mp4">
+                    Tu navegador no soporta videos.
+                </video>
+                <div id="controls-container" class="hidden">
+                    <p class="question">¿Quiere ser mi Valentín?</p>
+                    <div class="buttons">
+                        <button id="btn-si" class="btn-primary">¡SÍ! ❤️</button>
+                        <button id="btn-no" class="btn-secondary">No...</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="result-screen" class="overlay hidden">
+            <div id="result-content">
+                <div id="heart-container"></div>
+                <h1 id="result-text"></h1>
+                <div id="final-video-container" class="hidden">
+                    <video id="final-video" loop playsinline>
+                        <source src="/assets/final.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirmation Modals -->
+        <div id="modal-container" class="overlay hidden">
+            <div class="modal">
+                <p id="modal-text"></p>
+                <div class="modal-buttons">
+                    <button id="modal-confirm" class="btn-primary">Sí</button>
+                    <button id="modal-cancel" class="btn-secondary">No estoy segura</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</body>
+
+</html>
